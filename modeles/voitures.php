@@ -1,33 +1,33 @@
 <?php
 $tab_voiture = Array("Kia" => Array(
-                                    "Forte" => 8995,
-                                    "Optima" => 10995,
-                                    "Rio" => 8295
+                                    "Forte" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",8995),
+                                    "Optima" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",10995),
+                                    "Rio" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",8295)
                                     ),
 
                     "Mazda" => Array
                                     (
-                                        "CX3" => 23995,
-                                        "CX5" => 19995,
-                                        "CX7" => 6997
+                                        "CX3" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",23995),
+                                        "CX5" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19995),
+                                        "CX7" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",6997)
                                     ),
                     "Toyota"=> Array
                                     (
-                                        "corolla" => 15995,
-                                        "Tundra" => 19877,
-                                        "venza" => 16495
+                                        "corolla" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15995),
+                                        "Tundra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19877),
+                                        "venza" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",16495)
                                     ),
                     "Mitsubichi"=> Array
                                     (
-                                        "lancer" => 9595,
-                                        "mirage" => 15495,
-                                        "outlander" => 22995
+                                        "lancer" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9595),
+                                        "mirage" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15495),
+                                        "outlander" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",22995)
                                     ),
                     "Nissan"=> Array
                                     (
-                                        "juke" => 9295,
-                                        "micra" => 12195,
-                                        "rogue" => 10977
+                                        "juke" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9295),
+                                        "micra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",12195),
+                                        "rogue" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",10977)
                                     )
                     );
 
