@@ -4,5 +4,6 @@
     
     $tab_serialiser_voiture = serialize($tab_voiture);
     header("Location:./vues/accueil.php?voiture=".$tab_serialiser_voiture." ");
+    //ceci est un commentaire
 ?>
  
