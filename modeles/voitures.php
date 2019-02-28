@@ -1,67 +1,62 @@
 <?php
-$tab_voiture = Array("Kia" => Array(
-                                    "Forte" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",8995),
-                                    "Forte" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9000),
-                                    "Forte" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",11000),
-                                    "Optima" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",10995),
-                                    "Optima" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",10995),
-                                    "Optima" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",12000),
-                                    "Optima" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15000),
-                                    "Rio" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",8295),
-                                    "Rio" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",7500),
-                                    "Rio" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",11000)
-                                    ),
+$tab_voiture = Array("Marque" =>"Kia" => Array(
+    "modele" =>"Forte" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 8995),
+    "modele" =>"Forte" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 9000),
+    "modele" =>"Forte" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 11000),
+    "modele" =>"Optima" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 10995),
+    "modele" =>"Optima" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 10995),
+    "modele" =>"Optima" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 12000),
+    "modele" =>"Optima" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 15000),
+    "modele" =>"Rio" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 8295),
+    "modele" =>"Rio" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 7500),
+    "modele" =>"Rio" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 11000)
+    ),
 
-                    "Mazda" => Array
-                                    (
-                                        "CX3" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",23995),
-                                        "CX3" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15000),
-                                        "CX3" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",12690),
-                                        "CX5" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19995),
-                                        "CX5" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19995),
-                                        "CX5" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9000),
-                                        "CX5" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",23000),
-                                        "CX7" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",7805),
-                                        "CX7" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9635),
-                                        "CX7" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",6997)
+                    "Marque" =>"Mazda" => Array(
+    "modele" =>"CX3" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 23995),
+    "modele" =>"CX3" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 15000),
+    "modele" =>"CX3" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 12690),
+    "modele" =>"CX5" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 19995),
+    "modele" =>"CX5" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 9000),
+    "modele" =>"CX5" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 23000),
+    "modele" =>"CX7" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 7805),
+    "modele" =>"CX7" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 9635),
+    "modele" =>"CX7" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 6997)
                                     ),
-                    "Toyota"=> Array
-                                    (
-                                        "corolla" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15995),
-                                        "corolla" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",13569),
-                                        "corolla" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",12569),
-                                        "Tundra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19877),
-                                        "Tundra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",22000),
-                                        "Tundra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",18000),
-                                        "venza" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",16495),
-                                        "venza" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",6352),
-                                        "venza" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",7894)
-                                    ),
-                    "Mitsubichi"=> Array
-                                    (
-                                        "lancer" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9595),
-                                        "lancer" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",5600),
-                                        "lancer" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",7500),
-                                        "mirage" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15495),
-                                        "mirage" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",20000),
-                                        "mirage" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",13000),
-                                        "outlander" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",22995),
-                                        "outlander" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",33000),
-                                        "outlander" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19999)
-                                    ),
-                    "Nissan"=> Array
-                                    (
-                                        "juke" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",9295),
-                                        "juke" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15000),
-                                        "juke" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",13000),
-                                        "micra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",12195),
-                                        "micra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",19875),
-                                        "micra" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",15698),
-                                        "rogue" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",10977),
-                                        "rogue" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",12000),
-                                        "rogue" => Array("Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.",18000)
-                                    )
-                    );
+                    "Marque" =>"Toyota"=> Array(
+    "modele" =>"corolla" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 15995),
+    "modele" =>"corolla" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 13569),
+    "modele" =>"corolla" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 12569),
+    "modele" =>"Tundra" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 19877),
+    "modele" =>"Tundra" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 22000),
+    "modele" =>"Tundra" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 18000),
+    "modele" =>"venza" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 16495),
+    "modele" =>"venza" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 6352),
+    "modele" =>"venza" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 7894)
+),
+                    "Marque" =>"Mitsubichi"=> Array(
+    "modele" =>"lancer" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 9595),
+    "modele" =>"lancer" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 5600),
+    "modele" =>"lancer" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 7500),
+    "modele" => "mirage" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 15495),
+    "modele" => "mirage" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 20000),
+    "modele" =>"mirage" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 13000),
+    "modele" =>"outlander" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 22995),
+    "modele" =>"outlander" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 33000),
+    "modele" =>"outlander" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 19999)
+),
+                    "Marque" =>"Nissan"=> Array(
+    "modele" =>"juke" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 9295),
+    "modele" =>"juke" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 15000),
+    "modele" =>"juke" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 13000),
+    "modele" =>"micra" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 12195),
+    "modele" =>"micra" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 19875),
+    "modele" =>"micra" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 15698),
+    "modele" =>"rogue" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 10977),
+    "modele" =>"rogue" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 12000),
+    "modele" =>"rogue" => Array("descripion" => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.","price" => 18000)
+)
+);
 
 
 
