@@ -11,7 +11,6 @@
         <div>
                 <form name="formulaire"  method="post" action="">
                 <select name="Marque">
-                    <option class="style1"> Marque </option>
                         <?php
                             $tab_deserialiser_voiture = unserialize($_GET['voiture']); 
                             foreach($tab_deserialiser_voiture as $cle1 => $valeur1){
@@ -21,18 +20,13 @@
                             }
                         ?>
                 </select>
-                <!-- <a href="../modeles/voitures.php" target="_blank"><input type="button" name="MAJ" value="MAJ"/></a> -->
                 <br>
                 <select name="Modèle">
                 <?php
-                    require ('../modeles/voitures.php'); //charge la page avec le nom des marque
-                    ksort($tab_voiture); //ordre alphabetique de la cle 
-                    foreach($tab_voiture as $Marque => $valeur2){
+                    foreach($tab_deserialiser_voiture as $_GET['marque'] => $valeur2){
                         echo "<option value= $valeur2 >";
                         echo $valeur2;
-                    ?>
-                        </option> <br>
-                    <?php
+                        echo "</option> <br>";
                     }
                 ?>
                 </select>
