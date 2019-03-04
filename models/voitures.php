@@ -1,13 +1,20 @@
 <?php
-
 include_once("./classes/Car.php"); 
 
 class Model {
     private static $car_database = null;
     private static $makers_list = null;
 
-    public function __construct()
-    {
+    private function carClassSort($a, $b) {
+        $al = $a.getModel();
+        $bl = $b.getModel();
+        if ($al == $bl) {
+            return 0;
+        }
+        return ($al > $bl) ? +1 : -1;
+    }
+
+    public function __construct() {
         if(self::$car_database == null)
         {
             self::$car_database = array(
@@ -27,7 +34,7 @@ class Model {
                 new Car("Nissan", "Micra", 15698, ""),
                 new Car("Nissan", "Rogue", 10977, ""),
             );
-            ksort($car_database);
+            usort($car_database, "carClassSort");
         }
         if(self::$makers_list == null)
         {
@@ -37,17 +44,15 @@ class Model {
                     self::$makers_list[] = $car::maker;
                 }
             }
-            ksort(self::$makers_list);
+            asort(self::$makers_list);
         }
     }
 
-    public function getMakers()
-    {
+    public function getMakers() {
         return self::$makers_list;
     }
 
-    public function getModelsByMaker(String $maker)
-    {
+    public function getModelsByMaker(String $maker) {
         if(!in_array($maker, self::$makers_list))
         {
             throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
@@ -59,11 +64,11 @@ class Model {
                 $model_list[] = $car;
             }
         }
+
         return $model_list;
     }
 
-    public function getCarByID($id)
-    {
+    public function getCarByID($id) {
         return self::$car_database[$id];
     }
 }

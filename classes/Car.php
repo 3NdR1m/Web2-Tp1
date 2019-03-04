@@ -2,7 +2,7 @@
 class Car {
     private static $__Car_Class_Indexer = 0;
     public $maker;
-    public $model_name;
+    private $model_name;
     public $description;
     public $price;
     private $dbId;
@@ -20,6 +20,11 @@ class Car {
     public function getId()
     {
         return $this->$dbId;
+    }
+
+    public function getModel()
+    {
+        return $this->$model_name;
     }
 }
 ?>
