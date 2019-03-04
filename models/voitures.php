@@ -1,4 +1,8 @@
 <?php
+function getCarByFabricant($fabrican){
+    return $tab_voiture[$fabrican];
+}
+
 $tab_voiture = array(
     "Kia" => array(
         "Forte" => array(
@@ -131,5 +135,5 @@ $tab_voiture = array(
         )
     )
 );
-
+ksort($tab_voiture);
 ?>

@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Selection</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-    <script src="main.js"></script>
-</head>
-<body>
-    <?php foreach ($model_list as $key => $car): ?>
-        <h1>
-            <?php echo $car["description"] ?>
-        </h1>
-    <?php endforeach?>
-</body>
-</html>
+<?php define('DOC_TITLE', "Sélection"); require_once "shared/_header.php";  ?>
+
+<?php foreach ($variable as $key => $value): ?>
+<div class="car-info-card">
+    <h2>  <?php echo $car["company"]." ".$car["Model"]?></h2>
+    <img src="<?php echo $car["picture_href"]?>" alt="<?php echo $car["company"]." ".$car["Model"]?>">
+    <p><?php echo $car["description"] ?></p>
+    <p>
+        <span class="car-price"><?php echo $car["price"] ?></span>
+        <a href="financement.php">Financement</a>
+    </p>
+</div>
+<?php endforeach ?>
+<?php require_once "shared/_footer.php"; ?>
