@@ -31,19 +31,35 @@ class Model {
         }
         if(self::$makers_list == null)
         {
-            foreach ($car_database as $car) {
-                if(!in_array($car::maker, $makers_list))
+            foreach (self::$car_database as $car) {
+                if(!in_array($car::maker, self::$makers_list))
                 {
-                    $makers_list[] = $car::maker;
+                    self::$makers_list[] = $car::maker;
                 }
             }
-            ksort($makers_list);
+            ksort(self::$makers_list);
         }
     }
 
     public function getMakers()
     {
         return self::$makers_list;
+    }
+
+    public function getModelsByMaker(String $maker)
+    {
+        if(!in_array($maker, self::$makers_list))
+        {
+            throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
+        }
+        $model_list = null;
+        foreach (self::$car_database as $car) {
+            if($car::maker == $maker)
+            {
+                $model_list[] = $car;
+            }
+        }
+        return $model_list;
     }
 
     public function getCarByID($id)
