@@ -4,6 +4,7 @@ include_once("./classes/Car.php");
 
 class Model {
     private static $car_database = null;
+    private static $makers_list = null;
 
     public function __construct()
     {
@@ -28,11 +29,26 @@ class Model {
             );
             ksort($car_database);
         }
+        if(self::$makers_list == null)
+        {
+            foreach ($car_database as $car) {
+                if(!in_array($car::maker, $makers_list))
+                {
+                    $makers_list[] = $car::maker;
+                }
+            }
+            ksort($makers_list);
+        }
+    }
+
+    public function getMakers()
+    {
+        return self::$makers_list;
     }
 
     public function getCarByID($id)
     {
-        return $car_database[$id];
+        return self::$car_database[$id];
     }
 }
 ?>
