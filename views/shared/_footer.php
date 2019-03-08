@@ -1,6 +1,6 @@
     </main>
     <footer>
-        @copyright 2019 Name
+        Copyright © Rent Car 2019
     </footer>
 </body>
 </html>

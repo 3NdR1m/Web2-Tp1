@@ -1,7 +1,6 @@
 <?php
 define('CAR_IMAGE_FOLDER', '');
 
-
 class Car {
     private static $Car_Class_Indexer = 0;
     public $maker;

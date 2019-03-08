@@ -10,6 +10,6 @@
 <body>
     <header>
         <h1>Rent<span>car</span></h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit 1989!</p>
+        <p>Vendeur de voiture par excellence depuis 1989!</p>
     </header>
     <main>

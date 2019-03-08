@@ -35,7 +35,7 @@
         }
     }
 }
-h1, h2 {
+h1, h2, body {
     margin: 0;
 }
 
@@ -46,11 +46,13 @@ a {
         text-decoration-line: underline;
     }
 }
+html, body {
+    height: 100%;
+}
 body {
     color: white;
-    margin: 0;
     display: grid;
-    grid-template-rows: min-content min-content max-content;
+    grid-template-rows: min-content max-content auto;
     grid-row-gap: 16px;
     background-color: #000000;
     font-family: Arial, Helvetica, sans-serif;
@@ -85,6 +87,7 @@ body {
         padding-right: @gutter-h;
     }
     >footer {
+        margin-top: auto;
         background-color: #1b1b1b;
         text-align: center;
         padding: 8px;
