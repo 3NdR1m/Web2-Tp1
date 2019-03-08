@@ -11,8 +11,8 @@
                     <a href="financement.php?model=<?php echo $car->dbId; ?>">Financement</a>
                 </p>  
             </div>
-            <a href="../images/cars/<?php echo $car->full_name ?>">
-                <img src="../images/cars/<?php echo $car->full_name ?>.jpg" alt="<?php echo $car->full_name ?>">
+            <a href="./images/cars/<?php echo $car->full_name ?>">
+                <img src="./images/cars/<?php echo $car->full_name ?>.jpg" alt="<?php echo $car->full_name ?>">
             </a>
         </div>
     <?php endforeach ?>
