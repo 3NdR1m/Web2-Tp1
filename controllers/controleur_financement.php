@@ -1,30 +1,79 @@
 <?php
 /*calculs*/
-    //$id = $_REQUEST["id"];
-    //$car = getCarById($id);
-    $price = 10000;
-    $periods = 12; //months
-    $interestRate = 0.00;  //already transfered to decimal
+    /*$id = $_REQUEST["id"];
+    $car = getCarById($id);*/
+    $price = 12000;
+    /*$interestRate = 7.25;//$_POST["interestRate"];*/
+    //$periods = 12;
 
     define('TAX_TPS',0.05);
     define('TAX_TVQ',0.09975);
 
-    function calculateTaxes($price){
-        $taxes = $price * (TAX_TPS + TAX_TVQ);
+    $periods = getPeriods();
+    function getPeriods(){
+        $string = $_POST["interestRate"];
+        $periods = substr($string, 0, 2);
+        return (int)$periods;
+    }
+    
+    $interestRate = getInterestRate();
+    function getInterestRate(){
+        $string = $_POST["interestRate"];
+        $interestRate = substr($string, 10, 13);
+        return (float)$interestRate;
+    }
+
+    $tab_interestRates = array();
+    function showInterestRates($price){
+        $tab_interestRates = determineInterestRates($price);
+        foreach($tab_interestRates as $value){
+            echo "<option value='". $value . "'>" . $value ."</option>";
+        }
+    }
+    
+    function determineInterestRates($price){
+        if($price <= 10000){
+            $tab_interestRates = array("12 mois - 6.95%", "24 mois - 6.95%", "36 mois - 6.25%", "48 mois - 6.10%","60 mois - 6.00%");
+        }
+        else{
+            $tab_interestRates = array("12 mois - 7.25%", "24 mois - 7.25%", "36 mois - 6.30%", "48 mois - 6.30%", "60 mois - 5.85%");
+        }
+        return $tab_interestRates;
+    }
+
+    function calculateTaxes($balance){
+        $taxes = $balance * (TAX_TPS + TAX_TVQ);
         return number_format((float)$taxes, 2, '.', '');
     }
 
-    $advance = 0.00;
-    $balance = 0.00;
+    $advance = getAdvance();
+    function getAdvance(){
+        $advance = (isset($_POST['acompte'])) ? $_POST["acompte"] : null;
+        return number_format((float)$advance, 2, '.', '');;
+    }
+    function writeAdvance(){
+        $advance = (isset($_POST['acompte'])) ? $_POST["acompte"] : null;
+        echo floor($advance);
+    }
+    
+    $balance = calculateBalance($price, $advance);
     function calculateBalance($price, $advance){
         $balance = $price - $advance;
         return number_format((float)$balance, 2, '.', '');
-
     }
 
     function applyTaxes($price)
     {
-        return $price * (1 + (TAX_TPS + TAX_TVQ));
+        $priceWithTaxes = $price * (1 + (TAX_TPS + TAX_TVQ));
+        return number_format((float)$priceWithTaxes, 2, '.', '');
+    }
+
+    $monthlyPayment = calculateMonthlyPayment($balance, $periods, $interestRate);
+    function calculateMonthlyPayment($balance, $periods, $interestRate)
+    {
+        # https://en.wikipedia.org/wiki/Amortization_%282business%29
+        $monthlyPayment = $balance * ((($interestRate/100)/12)* pow(1+(($interestRate/100)/12), $periods) / (pow((1+($interestRate/100)/12), $periods) -1));
+        return number_format((float)$monthlyPayment, 2, '.', '');
     }
 
     function calculateInterests($monthlyPayment, $periods, $balance){
@@ -32,17 +81,23 @@
         return number_format((float)$interests, 2, '.', '');
     }
 
-    function calculatePriceWithInterests($balance, $interestRate){
-        $priceWithInterests = $balance + calculateInterests();
+    function calculatePriceWithInterests($balance, $interestRate, $periods, $monthlyPayment){
+
+        $priceWithInterests = $balance + calculateInterests($monthlyPayment, $periods, $balance);
         return number_format((float)$priceWithInterests, 2, '.', '');
     }
-    
-    $monthlyPayment = 0.00;
-    function calculateMonthlyPayment($balance, $periods, $interestRate)
-    {
-        # https://en.wikipedia.org/wiki/Amortization_%28business%29
-        $monthlyPayment = $balance * (( 1 - pow(1 + $interestRate, -$loanDurationInMonth)) / $interestRate);
-        return number_format((float)$monthlyPayment, 2, '.', '');
 
+    /*function validateAdvanceInput(){
+        if(!is_numeric("$_POST['acompte']") && if($_POST['acompte'] > $price) ){
+            throw new exception("L'acompte doit être un nombre entre 0 et le prix de la voiture")
+        })
     }
+
+    try {
+        validateAdvanceInput();
+    }
+
+    catch(Exception $e){
+        echo $e->getMessage();
+        */
 ?>

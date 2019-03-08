@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="main.css">
         <script src="main.js"></script>
-        <?php include_once('D:/wamp64/www\Web2-Tp1/controleurs/controleur_financement.php');?>
+        <?php include_once('D:/wamp64/www\Web2-Tp1/controllers/controleur_financement.php');?>
 
     </head>
     <body>
@@ -19,8 +19,8 @@
                 <td>
                     Coût :
                 </td>
-                <td>
-                    <?php echo $price ?>
+                <td id="price">
+                    <?php echo number_format((float)$price, 2, '.', '');?>
                 </td>
             </tr>
             <tr>
@@ -28,7 +28,8 @@
                     Acompte : 
                 </td>
                 <td>
-
+                    <?php $advance = getAdvance();
+                    echo $advance;?>
                 </td>
             </tr>
             <tr>
@@ -36,7 +37,8 @@
                     Balance :
                 </td>
                 <td>
-                    <?php calculateBalance($price, $advance)?>
+                    <?php $balance = calculateBalance($price, $advance);
+                    echo $balance;?>
                 </td>
             </tr>
             <tr>
@@ -44,7 +46,8 @@
                     Taxes :
                 </td>
                 <td>
-                    <?php echo calculateTaxes($price)?>
+                    <?php $taxes = calculateTaxes($balance); 
+                    echo $taxes?>
                 </td>
             </tr>
             <tr>
@@ -52,7 +55,8 @@
                     Intérêts : 
                 </td>
                 <td>
-
+                    <?php $interests = calculateInterests($monthlyPayment, $periods, $balance); 
+                    echo $interests?>
                 </td>
             </tr>
             <tr>
@@ -60,7 +64,8 @@
                     Montant à financer : 
                 </td>
                 <td>
-
+                    <?php $priceWithInterests = calculatePriceWithInterests($balance, $interestRate, $periods, $monthlyPayment);
+                    echo $priceWithInterests ?>
                 </td>
             </tr>
             <tr>
@@ -68,24 +73,22 @@
                     Paiments mensuels : 
                 </td>
                 <td>
-
+                    <?php $monthlyPayment = calculateMonthlyPayment($balance, $periods, $interestRate);
+                    echo $monthlyPayment;?>
                 </td>
             </tr>
         </table>
-        <select>
-            <option value="Intérêt1">12 mois - 6.95%</option>
-            <option value="Intérêt2">12 mois - 7.25%</option>
-            <option value="Intérêt3">24 mois - 6.95%</option>
-            <option value="Intérêt4">24 mois - 7.25%</option>
-            <option value="Intérêt5">36 mois - 6.25%</option>
-            <option value="Intérêt6">36 mois - 6.30%</option>
-            <option value="Intérêt7">48 mois - 6.10%</option>
-            <option value="Intérêt8">48 mois - 6.30%</option>
-            <option value="Intérêt9">60 mois - 6.00%</option>
-            <option value="Intérêt10">60 mois - 5.85%</option>
-        <input type="text" id="acompte" name="acompte" maxlength="8" size="12">
+        <form action="financement.php" method="post">
+        <label for="interestRate">Taux d'intérêt:</label>
+        <select name="interestRate">
+            <?php showInterestRates($price); ?>
+        </select>
         <br>
-        <button value="Refresh Page" onClick="window.location.reload()">calculer</button>
-
+            <label for="acompte">Acompte:</label>
+            <input type="text" name="acompte" maxlength="8" size="12" value="<?php writeAdvance()?>">
+        <br>
+        <button value="Submit">calculer</button>
+        </form>
+        <? validateAdvanceInput() ?>
     </body>
 </html>
