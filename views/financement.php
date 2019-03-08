@@ -7,7 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="main.css">
         <script src="main.js"></script>
-        <?php include_once('D:/wamp64/www\Web2-Tp1/controllers/controleur_financement.php');?>
+        <?php include_once('D:/wamp64/www\Web2-Tp1/controllers/controleur_financement.php');
+        require_once "shared/_header.php";
+        require_once "shared/_footer.php"; ?>
 
     </head>
     <body>
