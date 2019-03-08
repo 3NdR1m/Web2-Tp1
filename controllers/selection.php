@@ -1,27 +1,24 @@
 <?php
-include_once("classes/Car.php");  
+include_once("../models/voitures.php");
+$model = new Model();
 
-    class selectionController
-    {
-        public $model;
-
-        public function __construct()
-        {
-            $this->model = new Model();
-        }
-
-        public function invoke()  
-        {  
-             if (!isset($_GET['selected_cars']))  
-             {  
-                  // No car selected; go to accueil.
-                  $books = $this->model->getBookList();  
-                  include 'view/booklist.php'; 
-             } 
-             else 
-             {
-                  include "./views/selection.php?";  
-             }  
-        }  
+// Input query must have "selected_car"
+if(isset($_GET["selected_cars"]))
+{
+    // query selected car is stored in json format.
+    $json_input = json_decode($_GET["selected_cars"]);
+    if(json_last_error() == JSON_ERROR_NONE) {
+        $selected_cars = array_map(
+            'Model::getCarByID', 
+            json_decode($_GET["selected_cars"])
+        );
+        include "../views/selection.php";
+        exit();
     }
+}
+else
+{
+    http_response_code(400);
+    echo "Error 400. The request was incorrect.<br><a>Go back<a>";
+}
 ?>
