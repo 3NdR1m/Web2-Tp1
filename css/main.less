@@ -1,20 +1,92 @@
+.car-price {
+    &::after {
+        content: '$';
+    }
+}
+@gutter-h: 16px;
+.car-info-group {
+    display: grid;
+    grid-row-gap: 16px;
+    >.car-info-card {
+        min-height: 25vh;
+        background-color: #242424;
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        >a {
+            overflow: hidden;
+            grid-column-start: 4;
+            grid-column-end: -1;
+            justify-self: stretch;
+            min-height: 100%;
+            background-color: rgb(83, 83, 83);
+            >img{
+                min-height: 100%;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+        >div {
+            grid-column-start: 1;
+            grid-column-end: -3;
+            padding: 16px;
+        }
+    }
+}
+h1, h2 {
+    margin: 0;
+}
+
+a {
+    color: #ff9900;
+    text-decoration: none;
+    &:hover{
+        text-decoration-line: underline;
+    }
+}
 body {
+    color: white;
+    margin: 0;
+    display: grid;
+    grid-template-rows: min-content min-content max-content;
+    grid-row-gap: 16px;
+    background-color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
     >header {
-        // ...
+        -webkit-font-smoothing: antialiased;
+        background-color: #1b1b1b;
+        padding: 16px;
+        padding-left: @gutter-h;
+        padding-right: @gutter-h;
+        >h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            display: inline;
+            >span {
+                padding-top: 1px;
+                padding-bottom: 1px;
+                padding-left: 2px;
+                padding-right: 4px;
+                margin-left: 5px;
+                color: black;
+                background-color: #ff9900;
+                border-radius: 4px;
+            }
+        }
+        >p {
+            display: inline;
+            font-style: italic;
+        }
     }
     >main {
-        
+        padding-left: @gutter-h;
+        padding-right: @gutter-h;
     }
     >footer {
-        background-color: rgb(46, 46, 46);
-        color: white;
-
+        background-color: #1b1b1b;
         text-align: center;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-
         padding: 8px;
     }
 }
