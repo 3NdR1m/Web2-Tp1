@@ -3,7 +3,7 @@
     /*$id = $_REQUEST["id"];
     $car = getCarById($id);*/
     $price = 12000;
-    /*$interestRate = 7.25;//$_POST["interestRate"];*/
+    //$interestRate = 7.25;
     //$periods = 12;
 
     define('TAX_TPS',0.05);
@@ -12,14 +12,22 @@
     $periods = getPeriods();
     function getPeriods(){
         $string = $_POST["interestRate"];
-        $periods = substr($string, 0, 2);
+        $periods = substr($string, 0, 1);
         return (int)$periods;
     }
     
     $interestRate = getInterestRate();
     function getInterestRate(){
+        if(!isset($_POST["interestRate"])){
+            $price = getPrice();
+            $tab_interestRates = determineInterestRates($price);
+            $string = $tab_interestRates[0];
+            $interestRate = substr($string, 10, 13);
+        }
+        else{
         $string = $_POST["interestRate"];
         $interestRate = substr($string, 10, 13);
+        }
         return (float)$interestRate;
     }
 
