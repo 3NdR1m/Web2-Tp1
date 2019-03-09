@@ -76,6 +76,12 @@ class Model {
         return $model_list;
     }
 
+    /**
+     * get a specific car instance by it's database id.
+     *
+     * @param integer $id
+     * @return Car
+     */
     public static function getCarByID(int $id) {
         if($id < sizeof(self::$car_database) && $id >=0)
         {

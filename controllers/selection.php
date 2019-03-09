@@ -8,10 +8,12 @@ if(isset($_GET["selected_cars"]))
     // query selected car is stored in json format.
     $json_input = json_decode($_GET["selected_cars"]);
     if(json_last_error() == JSON_ERROR_NONE) {
-        $selected_cars = array_map(
-            'Model::getCarByID', 
-            json_decode($_GET["selected_cars"])
-        );
+        $selected_cars = 
+            array_filter(
+            array_map(
+                'Model::getCarByID', 
+                json_decode($_GET["selected_cars"])
+        ));
         include "./views/selection.php";
         exit();
     }

@@ -1,6 +1,6 @@
 <?php
 define('DOC_TITLE', "Sélection");
-require_once "./views/shared/_header.php";
+include "./views/shared/_header.php";
 
 // With the help of https://phpocean.com/tutorials/back-end/how-to-start-your-own-php-mvc-framework-in-4-steps/28
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
@@ -8,6 +8,10 @@ $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'
 switch($url[0]){
     case 'financement': 
         require_once "./controllers/controleur_financement.php";
+        break;
+    case "images":
+        $image = glob($_SERVER['PATH_INFO']);
+        echo '<img src="' . $image . '"/>';
         break;
     case 'selection':
         require_once "./controllers/selection.php";
@@ -17,5 +21,5 @@ switch($url[0]){
         require_once "./controllers/controller_accueil.php";
         break;
 }
-require_once "./views/shared/_footer.php";
+include "./views/shared/_footer.php";
 ?>
