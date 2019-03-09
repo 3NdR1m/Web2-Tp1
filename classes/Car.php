@@ -19,20 +19,5 @@ class Car {
         $this->description = $description;
         $this->dbId = self::$Car_Class_Indexer++;
     }
-
-    public function getId()
-    {
-        return $this->$dbId;
-    }
-
-    public function getModel()
-    {
-        return $this->$model_name;
-    }
-
-    public function getMaker()
-    {
-        return $this->$maker;
-    }
 }
 ?>
