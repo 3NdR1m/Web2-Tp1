@@ -10,7 +10,7 @@
                     <a href="financement?car_index=<?php echo $car->dbId; ?>">Financement</a>
                 </p>  
             </div>
-            <a href="./images/cars/<?php echo $car->full_name ?>">
+            <a href="./images/cars/<?php echo $car->full_name ?>.jpg">
                 <img src="./images/cars/<?php echo $car->full_name ?>.jpg" alt="<?php echo $car->full_name ?>">
             </a>
         </div>
