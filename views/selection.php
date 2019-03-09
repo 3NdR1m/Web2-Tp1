@@ -7,7 +7,7 @@
                 <q><?php echo $car->description ?></q>
                 <p>
                     <span class="car-price"><?php echo number_format($car->price, 0, '.', ',') ?></span>
-                    <a href="financement?car_index=<?php echo $car->dbId; ?>">Financement</a>
+                    <a href="financement?car_id=<?php echo $car->dbId; ?>">Financement</a>
                 </p>  
             </div>
             <a href="./images/cars/<?php echo $car->full_name ?>.jpg">
