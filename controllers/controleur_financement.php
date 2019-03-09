@@ -2,36 +2,47 @@
 /*calculs*/
     /*$id = $_REQUEST["id"];
     $car = getCarById($id);*/
-    $price = 12000;
+    //$price = 12000;
     //$interestRate = 7.25;
     //$periods = 12;
+    include_once("../models/voitures.php");
+    include_once("../views/financement.php");
 
-    define('TAX_TPS',0.05);
-    define('TAX_TVQ',0.09975);
+    define('TAX_TPS', 0.05);
+    define('TAX_TVQ', 0.09975);
+
+    function getPrice(){
+        $id = $_GET['car_id'];
+        $car = Model::getCarByID($id);
+        return $car->price;
+    }
+    $price = getPrice();
+    
 
     $periods = getPeriods();
     function getPeriods(){
-        $string = $_POST["interestRate"];
-        $periods = substr($string, 0, 1);
-        return (int)$periods;
+        $string = (isset($_POST['interestRate'])) ? $_POST['interestRate'] : null;
+            if($string == null){
+                $price = getPrice();
+                $tab_interestRates = determineInterestRates($price);
+                $string = $tab_interestRates[0];
+            }
+        $periods = substr($string, 10, 13);
+        return (float)$periods;
     }
     
     $interestRate = getInterestRate();
     function getInterestRate(){
-        if(!isset($_POST["interestRate"])){
-            $price = getPrice();
-            $tab_interestRates = determineInterestRates($price);
-            $string = $tab_interestRates[0];
-            $interestRate = substr($string, 10, 13);
-        }
-        else{
-        $string = $_POST["interestRate"];
+        $string = (isset($_POST['interestRate'])) ? $_POST['interestRate'] : null;
+            if($string == null){
+                $price = getPrice();
+                $tab_interestRates = determineInterestRates($price);
+                $string = $tab_interestRates[0];
+            }
         $interestRate = substr($string, 10, 13);
-        }
         return (float)$interestRate;
     }
 
-    $tab_interestRates = array();
     function showInterestRates($price){
         $tab_interestRates = determineInterestRates($price);
         foreach($tab_interestRates as $value){
@@ -49,11 +60,6 @@
         return $tab_interestRates;
     }
 
-    function calculateTaxes($balance){
-        $taxes = $balance * (TAX_TPS + TAX_TVQ);
-        return number_format((float)$taxes, 2, '.', '');
-    }
-
     $advance = getAdvance();
     function getAdvance(){
         $advance = (isset($_POST['acompte'])) ? $_POST["acompte"] : null;
@@ -68,6 +74,11 @@
     function calculateBalance($price, $advance){
         $balance = $price - $advance;
         return number_format((float)$balance, 2, '.', '');
+    }
+
+    function calculateTaxes($balance){
+        $taxes = $balance * ('TAX_TPS' + 'TAX_TVQ');
+        return number_format((float)$taxes, 2, '.', '');
     }
 
     function applyTaxes($price)
