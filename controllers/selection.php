@@ -9,7 +9,7 @@ if(isset($_GET["selected_cars"]))
     $json_input = json_decode($_GET["selected_cars"]);
     if(json_last_error() == JSON_ERROR_NONE) {
         $selected_cars = array_map(
-            'Model::getCarByID', 
+            'Model::getCarByID',
             json_decode($_GET["selected_cars"])
         );
         include "../views/selection.php";

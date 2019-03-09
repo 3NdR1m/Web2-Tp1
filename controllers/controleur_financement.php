@@ -2,36 +2,46 @@
 /*calculs*/
     /*$id = $_REQUEST["id"];
     $car = getCarById($id);*/
-    $price = 12000;
+    //$price = 12000;
     //$interestRate = 7.25;
     //$periods = 12;
+    include_once("../models/voitures.php");
 
     define('TAX_TPS',0.05);
     define('TAX_TVQ',0.09975);
 
+    $price = getPrice();
+    function getPrice(){
+        $id = $_GET['car_id'];
+        $car = Model::getCarByID($id);
+        $price = $car->price;
+        return number_format((float)$price, 2, '.', '');
+    }
+
     $periods = getPeriods();
     function getPeriods(){
-        $string = $_POST["interestRate"];
-        $periods = substr($string, 0, 1);
-        return (int)$periods;
+        $string = (isset($_POST['interestRate'])) ? $_POST['interestRate'] : null;
+            if($string == null){
+                $price = getPrice();
+                $tab_interestRates = determineInterestRates($price);
+                $string = $tab_interestRates[0];
+            }
+        $periods = substr($string, 10, 13);
+        return (float)$periods;
     }
     
     $interestRate = getInterestRate();
     function getInterestRate(){
-        if(!isset($_POST["interestRate"])){
-            $price = getPrice();
-            $tab_interestRates = determineInterestRates($price);
-            $string = $tab_interestRates[0];
-            $interestRate = substr($string, 10, 13);
-        }
-        else{
-        $string = $_POST["interestRate"];
+        $string = (isset($_POST['interestRate'])) ? $_POST['interestRate'] : null;
+            if($string == null){
+                $price = getPrice();
+                $tab_interestRates = determineInterestRates($price);
+                $string = $tab_interestRates[0];
+            }
         $interestRate = substr($string, 10, 13);
-        }
         return (float)$interestRate;
     }
 
-    $tab_interestRates = array();
     function showInterestRates($price){
         $tab_interestRates = determineInterestRates($price);
         foreach($tab_interestRates as $value){
