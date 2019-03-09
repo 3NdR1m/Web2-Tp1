@@ -1,23 +1,17 @@
 <?php
-/*calculs*/
-    /*$id = $_REQUEST["id"];
-    $car = getCarById($id);*/
-    //$price = 12000;
-    //$interestRate = 7.25;
-    //$periods = 12;
+
     include_once("../models/voitures.php");
-    include_once("../views/financement.php");
+    $model = new Model();
 
-    define('TAX_TPS', 0.05);
-    define('TAX_TVQ', 0.09975);
-
+    $price = getPrice();
     function getPrice(){
         $id = $_GET['car_id'];
         $car = Model::getCarByID($id);
         return $car->price;
     }
-    $price = getPrice();
     
+    
+    $selectedInterestRate = (isset($_POST['interestRate'])) ? $_POST['interestRate'] : null;
 
     $periods = getPeriods();
     function getPeriods(){
@@ -43,13 +37,7 @@
         return (float)$interestRate;
     }
 
-    function showInterestRates($price){
-        $tab_interestRates = determineInterestRates($price);
-        foreach($tab_interestRates as $value){
-            echo "<option value='". $value . "'>" . $value ."</option>";
-        }
-    }
-    
+    $tab_interestRates = determineInterestRates($price);
     function determineInterestRates($price){
         if($price <= 10000){
             $tab_interestRates = array("12 mois - 6.95%", "24 mois - 6.95%", "36 mois - 6.25%", "48 mois - 6.10%","60 mois - 6.00%");
@@ -76,8 +64,11 @@
         return number_format((float)$balance, 2, '.', '');
     }
 
+    $taxes = calculateTaxes($balance);
     function calculateTaxes($balance){
-        $taxes = $balance * ('TAX_TPS' + 'TAX_TVQ');
+        define('TAX_TPS', 0.05);
+        define('TAX_TVQ', 0.09975);
+        $taxes = $balance * (TAX_TPS + TAX_TVQ);
         return number_format((float)$taxes, 2, '.', '');
     }
 
@@ -95,28 +86,32 @@
         return number_format((float)$monthlyPayment, 2, '.', '');
     }
 
+    $interests = calculateInterests($monthlyPayment, $periods, $balance);
     function calculateInterests($monthlyPayment, $periods, $balance){
         $interests = ($monthlyPayment * $periods ) - $balance;
         return number_format((float)$interests, 2, '.', '');
     }
 
+    $priceWithInterests = calculatePriceWithInterests($balance, $interestRate, $periods, $monthlyPayment);
     function calculatePriceWithInterests($balance, $interestRate, $periods, $monthlyPayment){
 
         $priceWithInterests = $balance + calculateInterests($monthlyPayment, $periods, $balance);
         return number_format((float)$priceWithInterests, 2, '.', '');
     }
 
-    /*function validateAdvanceInput(){
-        if(!is_numeric("$_POST['acompte']") && if($_POST['acompte'] > $price) ){
-            throw new exception("L'acompte doit être un nombre entre 0 et le prix de la voiture")
-        })
+    function validateAdvanceInput(){
+        $advance = getAdvance();
+        $price = getPrice();
+        if($advance > $price){
+            throw new exception("L'acompte entré doit être plus petit que le prix de la voiture");
+        }
     }
-
     try {
         validateAdvanceInput();
     }
-
     catch(Exception $e){
         echo $e->getMessage();
-        */
+    }
+        
+    include_once("../views/financement.php");
 ?>
