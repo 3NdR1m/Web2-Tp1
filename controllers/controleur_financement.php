@@ -6,17 +6,18 @@
     //$interestRate = 7.25;
     //$periods = 12;
     include_once("../models/voitures.php");
+    include_once("../views/financement.php");
 
-    define('TAX_TPS',0.05);
-    define('TAX_TVQ',0.09975);
+    define('TAX_TPS', 0.05);
+    define('TAX_TVQ', 0.09975);
 
-    $price = getPrice();
     function getPrice(){
         $id = $_GET['car_id'];
         $car = Model::getCarByID($id);
-        $price = $car->price;
-        return number_format((float)$price, 2, '.', '');
+        return $car->price;
     }
+    $price = getPrice();
+    
 
     $periods = getPeriods();
     function getPeriods(){
@@ -59,11 +60,6 @@
         return $tab_interestRates;
     }
 
-    function calculateTaxes($balance){
-        $taxes = $balance * (TAX_TPS + TAX_TVQ);
-        return number_format((float)$taxes, 2, '.', '');
-    }
-
     $advance = getAdvance();
     function getAdvance(){
         $advance = (isset($_POST['acompte'])) ? $_POST["acompte"] : null;
@@ -78,6 +74,11 @@
     function calculateBalance($price, $advance){
         $balance = $price - $advance;
         return number_format((float)$balance, 2, '.', '');
+    }
+
+    function calculateTaxes($balance){
+        $taxes = $balance * ('TAX_TPS' + 'TAX_TVQ');
+        return number_format((float)$taxes, 2, '.', '');
     }
 
     function applyTaxes($price)
