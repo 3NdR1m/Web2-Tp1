@@ -8,6 +8,7 @@
 .car-info-group > .car-info-card {
   min-height: 25vh;
   background-color: #242424;
+  max-height: 60px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
@@ -21,6 +22,7 @@
 }
 .car-info-group > .car-info-card > a > img {
   min-height: 100%;
+  min-width: 100%;
   position: relative;
   left: 50%;
   top: 50%;
@@ -32,7 +34,8 @@
   padding: 16px;
 }
 h1,
-h2 {
+h2,
+body {
   margin: 0;
 }
 a {
@@ -42,11 +45,14 @@ a {
 a:hover {
   text-decoration-line: underline;
 }
+html,
+body {
+  height: 100%;
+}
 body {
   color: white;
-  margin: 0;
   display: grid;
-  grid-template-rows: min-content min-content max-content;
+  grid-template-rows: min-content max-content auto;
   grid-row-gap: 16px;
   background-color: #000000;
   font-family: Arial, Helvetica, sans-serif;
@@ -55,8 +61,8 @@ body > header {
   -webkit-font-smoothing: antialiased;
   background-color: #1b1b1b;
   padding: 16px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 10vw;
+  padding-right: 10vw;
 }
 body > header > h1 {
   font-family: Arial, Helvetica, sans-serif;
@@ -78,10 +84,13 @@ body > header > p {
   font-style: italic;
 }
 body > main {
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 body > footer {
+  margin-top: auto;
   background-color: #1b1b1b;
   text-align: center;
   padding: 8px;

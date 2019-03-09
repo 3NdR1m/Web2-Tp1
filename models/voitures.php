@@ -1,5 +1,9 @@
 <?php
-include_once("../classes/Car.php");
+/**
+ * @author Benjamin Bergeron <1833271>
+ */
+
+include_once("./classes/Car.php");
 
 function carClassSort(Car $a, Car $b) {
     $al = $a->maker;
@@ -10,6 +14,9 @@ function carClassSort(Car $a, Car $b) {
     return ($al > $bl) ? +1 : -1;
 }
 
+/**
+ * @static
+ */
 class Model {
     private static $car_database = array();
     private static $makers_list = array();
@@ -58,7 +65,7 @@ class Model {
         if(!in_array($maker, self::$makers_list)) {
             throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
         }
-        $model_list = null;
+        $model_list = array();
         foreach (self::$car_database as $car) {
             if($car->maker == $maker)
             {
@@ -70,7 +77,13 @@ class Model {
     }
 
     public static function getCarByID(int $id) {
-        return self::$car_database[$id];
+        if($id < sizeof(self::$car_database) && $id >=0)
+        {
+            return self::$car_database[$id];
+        }
+        else {
+            throw new Exception("The index ($id) is out of bound", 1);
+        }
     }
 }
 ?>
