@@ -1,6 +1,13 @@
 .car-price::after {
   content: '$';
 }
+.financing-info {
+  background-color: #242424;
+  padding: 8px;
+}
+.financing-info > table td:last-child {
+  text-align: right;
+}
 .car-info-group {
   display: grid;
   grid-row-gap: 16px;
