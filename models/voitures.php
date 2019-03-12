@@ -45,10 +45,10 @@ class Model {
                 new Car("Nissan", "Rogue", 10977, ""),
             );
         }
-        if(self::$makers_list == null)
+        if(true /*self::$makers_list == null*/)
         {
             foreach (self::$car_database as $car) {
-                if(in_array($car->maker, self::$makers_list))
+                if(!in_array($car->maker, self::$makers_list))
                 {
                     self::$makers_list[] = $car->maker;
                 }
