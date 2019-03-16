@@ -1,5 +1,5 @@
 <?php
-include_once("./models/voitures.php");
+include_once("../models/voitures.php");
 $model = new Model();
 
 // Input query must have "selected_car"
@@ -14,7 +14,7 @@ if(isset($_GET["selected_cars"]))
                 'Model::getCarByID', 
                 json_decode($_GET["selected_cars"])
         ));
-        include "./views/selection.php";
+        include "../views/selection.php";
         exit();
     }
 }

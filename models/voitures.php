@@ -3,7 +3,7 @@
  * @author Benjamin Bergeron <1833271>
  */
 
-include_once("./classes/Car.php");
+include_once("$_SERVER[DOCUMENT_ROOT]/Web2-Tp1/classes/Car.php");
 
 function carClassSort(Car $a, Car $b) {
     $al = $a->maker;
@@ -40,9 +40,6 @@ class Model {
                 new Car("Mitsubichi", "Lancer", 9595, ""),
                 new Car("Mitsubichi", "Mirage", 20000, ""),
                 new Car("Mitsubichi", "Outlander", 22995, ""),
-                new Car("Nissan", "Juke", 13000, ""),
-                new Car("Nissan", "Micra", 15698, ""),
-                new Car("Nissan", "Rogue", 10977, ""),
             );
         }
         if(true /*self::$makers_list == null*/)
@@ -63,7 +60,7 @@ class Model {
 
     public static function getModelsByMaker(String $maker) {
         if(!in_array($maker, self::$makers_list)) {
-            throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
+           throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
         }
         $model_list = array();
         foreach (self::$car_database as $car) {
@@ -92,4 +89,7 @@ class Model {
         }
     }
 }
+
+
+
 ?>

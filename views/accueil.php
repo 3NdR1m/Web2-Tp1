@@ -3,11 +3,13 @@
  * @author Paul LENOIR <1834889>
  */
 $tab_marque = unserialize($_GET['tab_marque']); 
-$tab_model = unserialize($_GET['tab_modele']); 
+$tab_modele = unserialize($_GET['tab_modele']); 
 
 
-$valider = (!empty($_POST['valider'])?$_POST['valider'] = "true" : "");
+$valider = (!empty($_POST['valider'])?$_POST['valider'] = "true" : "false");
 $tab_marque_choisi = (isset($_POST["marque"]))?$_POST["marque"]:null;
+
+$Rechercher = (!empty($_POST['Rechercher'])?$_POST['Rechercher'] = "true" : "");
 ?>
 
 <div>
@@ -29,18 +31,43 @@ $tab_marque_choisi = (isset($_POST["marque"]))?$_POST["marque"]:null;
                 ?>
             </select>
     <br>
-    <input type="submit" name="valider" value="valider Marque"/> 
     <br>
-        
+    <input type="submit" name="valider" value="valider votre/vos marque(s)"/> 
+    <br>
+    <br>     
     <?php		
-		if($_POST['valider'] == "true"){
+		if(isset($_POST['valider']) && $_POST['valider'] == "true"){ //bouton valider marque pour generer les modeles
             $true = "true";
-            header("location:..\controllers\controleur_accueil.php?tab_marque=".$tab_marque_choisi . "&acces=" .$true);
+            $tab_modele_choisi_URL = serialize($tab_marque_choisi); 
+            header("location:..\controllers\controleur_accueil.php?tab_marque=".$tab_modele_choisi_URL . "&acces=" .$true);
         }
         
-        //$tab_model_GET = unserialize($_GET['modele_liste']); 
-	?>
+    ?>
+        <select name="modele[]" type="select" multiple="true" size="3"> <!--  liste deroulante modele -->
+		<?php		
+            for($i = 0; $i < count($tab_modele); $i++){
+                if (isset($_POST['modele']) && $_POST['modele'] == $cle){
+                    $selected = 'selected=selected';
+                }
+                else{
+                    $selected = '';
+                };
+				echo '<option value="'.$tab_modele[$i]. '"' . $selected . '>';
+				echo $tab_modele[$i];
+				echo "</option>";
+            } 
+		?>
+	</select>
+
 <br><br>
         <input type="submit" name="Rechercher" value="Rechercher"/>
     </form>
-</div>
+</div> 
+<?php		
+		if(isset($_POST['Rechercher']) && $_POST['Rechercher'] == "true"){
+             if(isset($_POST["modele"])){ 
+                $tab_modele_choisi_URL = serialize($_POST["modele"]); 
+               header("location:..\controllers\selection.php?selected_cars=".$tab_modele_choisi_URL); //bouton recherche envoie modele à selection.php
+            }  
+        }
+    ?>
