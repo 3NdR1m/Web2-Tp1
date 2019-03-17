@@ -16,6 +16,7 @@ $car_models = Model::getModelsByMaker($maker);
 $selected_models = (!empty($_POST['reload_models'])?$_POST['reload_models'] : " ");
 
 if(isset($_POST['proceed']) && isset($selected_models)) {
-   header("location:./controllers/selection.php");
+   header("location:./controllers/selection.php"); 
+   
 }
 ?>
