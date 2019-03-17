@@ -16,7 +16,8 @@ $car_models = Model::getModelsByMaker($maker);
 $button_maker = (!empty($_POST['reload_models'])?$_POST['reload_models'] : " ");
 $button_model = (!empty($_POST['proceed'])?$_POST['proceed'] : " ");
 
-if(isset($button_maker) && isset($button_model)) {
-  header("location:./controllers/selection.php?selected_cars='.$selected_cars"); 
-}
+if(isset($_POST['proceed_to_selection'])) {
+   //faire validation sur les models de char selectionées
+   header('location: selection?selected_cars='.$selected_cars); 
+ }
 ?>
