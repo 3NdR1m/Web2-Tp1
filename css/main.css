@@ -1,3 +1,6 @@
+:root {
+  --color-main: #ff9900;
+}
 .car-price::after {
   content: '$';
 }
@@ -8,32 +11,37 @@
 .financing-info > table td:last-child {
   text-align: right;
 }
+table {
+  margin-bottom: 8px;
+}
+.thumbnail {
+  overflow: hidden;
+  background-color: white;
+}
+.thumbnail > img {
+  max-height: 100%;
+  max-width: 100%;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
 .car-info-group {
   display: grid;
   grid-row-gap: 16px;
 }
 .car-info-group > .car-info-card {
-  min-height: 25vh;
+  min-height: 20vh;
   background-color: #242424;
-  max-height: 60px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
-.car-info-group > .car-info-card > a {
-  overflow: hidden;
+.car-info-group > .car-info-card > .thumbnail {
   grid-column-start: 4;
   grid-column-end: -1;
   justify-self: stretch;
   min-height: 100%;
-  background-color: #535353;
-}
-.car-info-group > .car-info-card > a > img {
-  min-height: 100%;
-  min-width: 100%;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translateY(-50%) translateX(-50%);
+  max-height: 100%;
 }
 .car-info-group > .car-info-card > div {
   grid-column-start: 1;
@@ -46,7 +54,7 @@ body {
   margin: 0;
 }
 a {
-  color: #ff9900;
+  color: var(--color-main);
   text-decoration: none;
 }
 a:hover {
@@ -56,11 +64,39 @@ html,
 body {
   height: 100%;
 }
+select {
+  border-style: none;
+  background-color: unset;
+}
+select > option {
+  color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+select > option:nth-child(even) {
+  background-color: #2e2e2e;
+}
+select > option:nth-child(odd) {
+  background-color: #3b3b3b;
+}
+select > option:selected {
+  background-color: var(--color-main);
+  color: black;
+}
+button,
+input[type="submit"] {
+  border-style: none;
+  border-radius: 4px;
+  background-color: var(--color-main);
+  font-weight: bold;
+  padding: 8px;
+  cursor: pointer;
+}
 body {
   color: white;
   display: grid;
   grid-template-rows: min-content max-content auto;
-  grid-row-gap: 16px;
+  grid-row-gap: 24px;
   background-color: #000000;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -83,7 +119,7 @@ body > header > h1 > span {
   padding-right: 4px;
   margin-left: 5px;
   color: black;
-  background-color: #ff9900;
+  background-color: var(--color-main);
   border-radius: 4px;
 }
 body > header > p {
@@ -95,6 +131,22 @@ body > main {
   padding-right: 10vw;
   margin-left: auto;
   margin-right: auto;
+}
+body > main .acceuil {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 32px;
+}
+body > main .acceuil > form {
+  display: grid;
+  grid-template-rows: repeat(1fr);
+  grid-row-gap: 16px;
+  padding: 8px;
+  background-color: #242424;
+  justify-self: center;
+}
+body > main .acceuil > form * {
+  display: block;
 }
 body > footer {
   margin-top: auto;
