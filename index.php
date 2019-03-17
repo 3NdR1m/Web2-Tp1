@@ -8,6 +8,10 @@ function generateView() {
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
 
+if(phpversion() < '7.3.1') {
+    echo 'VOTTRE DISTRIBUTION PHP EST OBSOLETTE ( < 7.3.1 ).';
+}
+
 switch($url[0]){
     case 'financement': 
         include './controllers/financement.php';
@@ -26,7 +30,9 @@ switch($url[0]){
         break;
     default:
         header('location: acceuil');
+        exit();
         break;
 }
+
 
 ?>
