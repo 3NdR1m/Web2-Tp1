@@ -32,6 +32,7 @@
     }
 
     function calculateMonthlyPayment($balance, $loanDurationInMonth, $interestRate) {
+        $interestRate = $interestRate / $loanDurationInMonth;
         $recursive_equation_pattern = pow(1 + $interestRate, $loanDurationInMonth); // this is a piece of equation that appear more than two time. It will only be calculated once.
         return $balance * (($interestRate * $recursive_equation_pattern) / ($recursive_equation_pattern - 1));
     }
