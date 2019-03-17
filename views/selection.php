@@ -10,8 +10,8 @@
                     <a href="financement?car_id=<?php echo $car->dbId; ?>">Financement</a>
                 </p>  
             </div>
-            <a href="./images/cars/<?php echo $car ?>.jpg">
-                <img src="./images/cars/<?php echo $car ?>.jpg" alt="<?php echo $car ?>">
+            <a href="<?php echo $car->image_path ?>" class="thumbnail">
+                <img src="<?php echo $car->thumbnail_path ?>" alt="<?php echo $car ?>">
             </a>
         </div>
     <?php endforeach ?>

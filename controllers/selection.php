@@ -1,6 +1,6 @@
 <?php
 define('DOC_TITLE', 'Sélection');
-define('VIEW', 'Sélection.php');
+define('VIEW', 'selection.php');
 
 if(isset($_GET["selected_cars"]))
 {
@@ -12,11 +12,9 @@ if(isset($_GET["selected_cars"]))
                 'Model::getCarByID', 
                 json_decode($_GET["selected_cars"])
         ));
-        
         exit();
     }
 }
 http_response_code(400);
-echo 'Error 400. The request was incorrect.';
 
 ?>
