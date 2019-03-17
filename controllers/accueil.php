@@ -5,18 +5,14 @@
 
 define('DOC_TITLE', "Acceuil");
 define('VIEW', "accueil.php");
-
 $selected_maker = (int)filter_input(INPUT_POST, 'maker', FILTER_VALIDATE_INT);
-$selected_cars = filter_input(INPUT_POST, 'car_id');
+$selected_cars = isset($_POST['model']) ? filter_var_array($_POST['model'], FILTER_SANITIZE_NUMBER_INT) : array(0);
 
 $car_makers = Model::getMakers();
 $maker = $car_makers[$selected_maker];
 $car_models = Model::getModelsByMaker($maker);
 
-$button_maker = (!empty($_POST['reload_models'])?$_POST['reload_models'] : " ");
-$button_model = (!empty($_POST['proceed'])?$_POST['proceed'] : " ");
-
-if(isset($button_maker) && isset($button_model)) {
-  header("location:./controllers/selection.php?selected_cars='.$selected_cars"); 
+if(isset($_POST['proceed_to_selection'])) {
+   header('location: selection?selected_cars='.json_encode($selected_cars, JSON_NUMERIC_CHECK)); 
 }
 ?>
