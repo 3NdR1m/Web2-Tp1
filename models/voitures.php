@@ -4,6 +4,7 @@
  */
 
 include_once("./classes/Car.php");
+include_once("./classes/CarMaker.php");
 
 function carClassSort(Car $a, Car $b) {
     $al = $a->maker;
@@ -22,7 +23,13 @@ class Model {
     private static $makers_list = array();
 
     public function __construct() {
-        if(true /*self::$car_database == null*/)
+        /*if(self::$car_database == null)
+        {
+            self::$car_database = array(
+                "kia" => new CarMaker("Kia")
+            );
+        }*/
+        if(self::$car_database == null)
         {
             self::$car_database = array(
                 #https://www.kia.ca/rio?sourceid=new-nav
@@ -45,7 +52,7 @@ class Model {
                 new Car("Nissan", "Versa", 10977, ""),
             );
         }
-        if(true /*self::$makers_list == null*/)
+        if(self::$makers_list == null)
         {
             foreach (self::$car_database as $car) {
                 if(!in_array($car->maker, self::$makers_list))
@@ -62,6 +69,21 @@ class Model {
     }
 
     public static function getModelsByMaker(String $maker) {
+        if(!in_array($maker, self::$makers_list)) {
+            throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
+        }
+        $model_list = array();
+        foreach (self::$car_database as $car) {
+            if($car->maker == $maker)
+            {
+                $model_list[] = $car;
+            }
+        }
+
+        return $model_list;
+    }
+
+    public static function getModelsByMakerId(int $maker_id) {
         if(!in_array($maker, self::$makers_list)) {
             throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
         }

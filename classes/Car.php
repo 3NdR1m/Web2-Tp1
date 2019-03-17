@@ -16,7 +16,7 @@ class Car {
         $this->model_name = $model_name;
         $this->price = $price;
         $this->description = $description;
-        $this->thumbnail_path = './images/cars/thumbnails/'.$this.'.png';
+        $this->thumbnail_path = './images/cars/thumbnails/'.$this.'.webp';
         $this->image_path = './images/cars/'.$this.'.png';
         $this->generateThumbnail();
 
@@ -28,15 +28,17 @@ class Car {
         $file_mime_type = finfo_file($finfo, $filename);
         switch ($file_mime_type) {
             case 'image/jpg':
-                return imagecreatefromjpeg($filename); break;
+                return imagecreatefromjpeg($filename);
+                break;
             case 'image/png':
-                return imagecreatefrompng($filename); break;
+                return imagecreatefrompng($filename);
+                break;
             case 'image/gif':
-                return imagecreatefromgif($filename); break;
+                return imagecreatefromgif($filename);
+                break;
             case 'image/webp':
-                return imagecreatefromwebp($filename); break;
-            break;
-            // ...
+                return imagecreatefromwebp($filename);
+                break;
             default:
                 throw new InvalidArgumentException('File "'.$filename.'" is not a recognized image format.');
             break;
@@ -48,7 +50,7 @@ class Car {
         if(!file_exists($this->thumbnail_path)) {
             $img_src = Car::imageCreateFromFile($this->image_path);
             $img_dest = imagescale($img_src, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT);
-            imagepng($img_dest, $this->thumbnail_path);
+            imagewebp($img_dest, $this->thumbnail_path);
             imagedestroy($img_src);
             imagedestroy($img_dest);
         }
