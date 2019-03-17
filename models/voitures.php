@@ -64,24 +64,13 @@ class Model {
         return self::$makers_list;
     }
 
+    public static function isCarIndexValid(int $carId) {
+        return ($carId >= 0 && $carId < sizeof(self::$model_list));
+    }
+
     public static function getModelsByMaker(String $maker) {
         if(!in_array($maker, self::$makers_list)) {
            throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
-        }
-        $model_list = array();
-        foreach (self::$car_database as $car) {
-            if($car->maker == $maker)
-            {
-                $model_list[] = $car;
-            }
-        }
-
-        return $model_list;
-    }
-
-    public static function getModelsByMakerId(int $maker_id) {
-        if(!in_array($maker, self::$makers_list)) {
-            throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
         }
         $model_list = array();
         foreach (self::$car_database as $car) {

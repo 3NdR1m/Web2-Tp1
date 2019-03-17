@@ -74,27 +74,7 @@ html, body {
     height: 100%;
 }
 
-select {
-    border-style: none;
-    background-color: unset;
-    >option
-    {
-        color: white;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        &:nth-child(even) {
-            background-color: rgb(46, 46, 46);
-        }
-        &:nth-child(odd)
-        {
-            background-color: rgb(59, 59, 59);
-        }
-        &:selected {
-            background-color: var(--color-main);
-            color: black;
-        }
-    }
-}
+
 
 button, input[type="submit"] {
     border-style: none;
@@ -112,7 +92,6 @@ body {
     background-color: #000000;
     font-family: Arial, Helvetica, sans-serif;
     >header {
-        -webkit-font-smoothing: antialiased;
         background-color: #1b1b1b;
         padding: 16px;
         padding-left: @gutter-h;
@@ -154,6 +133,27 @@ body {
                 padding: 8px;
                 background-color: #242424;
                 justify-self: center;
+                select {
+                    border-style: none;
+                    background-color: unset;
+                    >option
+                    {
+                        color: white;
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                        &:nth-child(even) {
+                            background-color: rgb(46, 46, 46);
+                        }
+                        &:nth-child(odd)
+                        {
+                            background-color: rgb(59, 59, 59);
+                        }
+                        &:selected {
+                            background-color: var(--color-main);
+                            color: black;
+                        }
+                    }
+                }
             }
         }
     }
