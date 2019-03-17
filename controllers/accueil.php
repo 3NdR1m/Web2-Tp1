@@ -13,9 +13,9 @@ $car_makers = Model::getMakers();
 $maker = $car_makers[$selected_maker];
 $car_models = Model::getModelsByMaker($maker);
 
-$selected_models = (!empty($_POST['reload_models'])?$_POST['reload_models'] : " ");
+$button_maker = (!empty($_POST['reload_models'])?$_POST['reload_models'] : " ");
 
-if(isset($_POST['proceed']) && isset($selected_models)) {
+if(isset($_POST['proceed']) && isset($button_maker)) {
    header("location:./controllers/selection.php"); 
    
 }
