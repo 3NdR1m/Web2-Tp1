@@ -70,7 +70,7 @@ class Model {
 
     public static function getModelsByMaker(String $maker) {
         if(!in_array($maker, self::$makers_list)) {
-            throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
+           throw new Exception("Maker named \"".$maker."\" doesn't exist", 1);
         }
         $model_list = array();
         foreach (self::$car_database as $car) {
@@ -114,4 +114,7 @@ class Model {
         }
     }
 }
+
+
+
 ?>
