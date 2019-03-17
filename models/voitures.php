@@ -4,7 +4,6 @@
  */
 
 include_once("./classes/Car.php");
-include_once("./classes/CarMaker.php");
 
 function carClassSort(Car $a, Car $b) {
     $al = $a->maker;
