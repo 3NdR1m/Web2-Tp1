@@ -1,3 +1,8 @@
+<?php
+/**
+* @author Jamie Zilio <1664357>
+*/
+?>
 <table border="1">
     <tr><th>Coûts de la voiture:</th></tr>
     <tr>
