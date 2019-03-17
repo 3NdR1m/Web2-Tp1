@@ -12,9 +12,13 @@ if(isset($_GET["selected_cars"]))
                 'Model::getCarByID', 
                 json_decode($_GET["selected_cars"])
         ));
-        exit();
+    }
+    else {
+        http_response_code(400);
     }
 }
-http_response_code(400);
+else {
+    http_response_code(400);
+}
 
 ?>
