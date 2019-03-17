@@ -29,7 +29,7 @@ class Model {
         {
             self::$car_database = array(
                 #https://www.kia.ca/rio?sourceid=new-nav
-                new Car("Kia", "Forte", 18245, "Le segment des voitures compactes avait besoin d'une révolution, et la voici. Pleine de technologie et agréable à conduire, la Forte 2019 a été complètement repensée pour vous en donner plus. Plus de conduite sportive. Plus de plaisir au volant. Toujours connectée et technologiquement avancée. Et avec son nouveau look audacieux et sa finition haut de gamme, elle fait vraiment tourner les têtes."),
+                new Car("Kia", "Forte", 18245, "Le segment des voitures compactes avait besoin d'une révolution, et la voici. Pleine de technologie et agréable à conduire, la Forte a été complètement repensée pour vous en donner plus. Plus de conduite sportive. Plus de plaisir au volant. Toujours connectée et technologiquement avancée. Et avec son nouveau look audacieux et sa finition haut de gamme, elle fait vraiment tourner les têtes."),
                 new Car("Kia", "Optima", 16395, "FAITE POUR DÉPASSER VOS ATTENTES! Avec sa nouvelle allure élégante et un éventail complet de technologies, la Rio prochaine génération se démarque partout où elle va."),
                 new Car("Kia", "Rio", 26795, "Conçue pour attirer. Conduite pour plaire. L’Optima est la berline qui prouve que la sécurité et le confort peuvent rimer avec conduite mémorable."),
                 #https://www.mazda.fr/showroom/
