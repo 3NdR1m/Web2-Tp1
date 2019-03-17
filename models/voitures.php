@@ -114,6 +114,6 @@ class Model {
     }
 }
 
-
+$model = new Model();
 
 ?>

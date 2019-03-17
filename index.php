@@ -1,38 +1,47 @@
 <?php
 include_once('./models/voitures.php');
-$model = new Model();
 
-function generateView() {
-    include './views/shared/_layout.php';
+function invokeController(string $controller_name) {
+    $controller_path = './controllers/' . $controller_name;
+    if(!file_exists($controller_path)) {
+        throw new Exception('Controller "'. $controller_path .'" does not exist', 1);
+        die();
+    }
+    else {
+        include $controller_path;
+        include './views/shared/_layout.php';
+    }
+}
+function echo_r($var) {
+    echo "<pre>";
+    print_r($var);
+    echo"</pre>";
 }
 
-$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
+
+
+$url = isset($_GET['url']) ? explode('/', ltrim($_GET['url'],'/')) : '/';
 
 if(phpversion() < '7.3.1') {
     echo 'VOTTRE DISTRIBUTION PHP EST OBSOLETTE ( < 7.3.1 ).';
 }
-
 switch($url[0]){
     case 'financement': 
-        include './controllers/financement.php';
-        generateView();
+        invokeController('financement.php');
         break;
     case 'images':
         echo '<img src="' . $_SERVER['PATH_INFO'] . '"/>';
         break;
     case 'selection':
-        include './controllers/selection.php';
-        generateView();
+        invokeController('selection.php');
         break;
-    case 'acceuil':
-        include './controllers/accueil.php';
-        generateView();
+    case 'accueil':
+        invokeController('accueil.php');
         break;
     default:
-        header('location: acceuil');
+        header('location: ./accueil');
         exit();
         break;
 }
-
 
 ?>
