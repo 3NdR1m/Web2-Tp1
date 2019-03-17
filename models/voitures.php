@@ -19,6 +19,7 @@ function carClassSort(Car $a, Car $b) {
  */
 class Model {
     private static $car_database = array();
+    private static $makers_list = array();
 
     public function __construct() {
         if (!file_exists('./images/cars/thumbnails')) {
