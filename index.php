@@ -1,23 +1,28 @@
 <?php
-define('DOC_TITLE', "Sélection");
-include "./views/shared/_header.php";
+include_once('./models/voitures.php');
+$model = new Model();
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'],'/')) : '/';
+
 switch($url[0]){
     case 'financement': 
-        require_once "./controllers/controleur_financement.php";
+        include './controllers/financement.php';
         break;
-    case "images":
-        $image = glob($_SERVER['PATH_INFO']);
-        echo '<img src="' . $image . '"/>';
+    case 'images':
+        echo '<img src="' . $_SERVER['PATH_INFO'] . '"/>';
+        exit();
         break;
     case 'selection':
-        require_once "./controllers/selection.php";
+        include './controllers/selection.php';
         break;
     case 'acceuil':
+        include './controllers/accueil.php';
+        break;
     default:
-        require_once "./controllers/controleur_accueil.php";
+        header('location: acceuil');
         break;
 }
-include "./views/shared/_footer.php";
+
+include './views/shared/_layout.php';
+
 ?>
