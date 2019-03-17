@@ -74,7 +74,9 @@ html, body {
     height: 100%;
 }
 
-
+*[disabled] {
+    opacity: 0.8;
+}
 
 button, input[type="submit"] {
     border-style: none;
@@ -136,6 +138,7 @@ body {
                 select {
                     border-style: none;
                     background-color: unset;
+                    overflow-y: auto;
                     >option
                     {
                         color: white;
@@ -148,11 +151,12 @@ body {
                         {
                             background-color: rgb(59, 59, 59);
                         }
-                        &:[selected="true"] {
-                            background-color: var(--color-main);
-                            color: black;
-                        }
                     }
+                }
+                #select_maker>option[selected] {
+                    font-weight: bold;
+                    /*background-color: var(--color-main);
+                    color: black;*/
                 }
             }
         }

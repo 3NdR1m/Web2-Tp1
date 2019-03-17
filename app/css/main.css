@@ -64,6 +64,9 @@ html,
 body {
   height: 100%;
 }
+*[disabled] {
+  opacity: 0.8;
+}
 button,
 input[type="submit"] {
   border-style: none;
@@ -128,6 +131,7 @@ body > main > #form_acceuil > div {
 body > main > #form_acceuil > div select {
   border-style: none;
   background-color: unset;
+  overflow-y: auto;
 }
 body > main > #form_acceuil > div select > option {
   color: white;
@@ -140,9 +144,10 @@ body > main > #form_acceuil > div select > option:nth-child(even) {
 body > main > #form_acceuil > div select > option:nth-child(odd) {
   background-color: #3b3b3b;
 }
-body > main > #form_acceuil > div select > option:selected {
-  background-color: var(--color-main);
-  color: black;
+body > main > #form_acceuil > div #select_maker > option[selected] {
+  font-weight: bold;
+  /*background-color: var(--color-main);
+                    color: black;*/
 }
 body > footer {
   margin-top: auto;
