@@ -19,15 +19,11 @@ function carClassSort(Car $a, Car $b) {
  */
 class Model {
     private static $car_database = array();
-    private static $makers_list = array();
 
     public function __construct() {
-        /*if(self::$car_database == null)
-        {
-            self::$car_database = array(
-                "kia" => new CarMaker("Kia")
-            );
-        }*/
+        if (!file_exists('./images/cars/thumbnails')) {
+            mkdir('./images/cars/thumbnails', 0777, true);
+        }
         if(self::$car_database == null)
         {
             self::$car_database = array(

@@ -18,8 +18,6 @@ function echo_r($var) {
     echo"</pre>";
 }
 
-
-
 $url = isset($_GET['url']) ? explode('/', ltrim($_GET['url'],'/')) : '/';
 
 if(phpversion() < '7.3.1') {
