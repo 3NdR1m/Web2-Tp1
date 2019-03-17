@@ -16,7 +16,7 @@ $car_models = Model::getModelsByMaker($maker);
 $button_maker = (!empty($_POST['reload_models'])?$_POST['reload_models'] : " ");
 
 if(isset($_POST['proceed']) && isset($button_maker)) {
-   header("location:./controllers/selection.php"); 
+   header("location:./controllers/selection.php?selected_cars='.$selected_cars"); 
    
 }
 ?>
