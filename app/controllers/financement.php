@@ -51,7 +51,7 @@
     $car_index = filter_input(INPUT_GET, "car_id", FILTER_VALIDATE_INT);
 
     $car = Model::getCarByID($car_index);
-    $price = 10000 /*$car->price*/;
+    $price = $car->price;
 
     $advance = MIN(
         // Parsing filter_input to float will force the value to 0.0f if the returned value is null or false.

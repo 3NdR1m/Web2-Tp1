@@ -9,7 +9,10 @@
         <input type="submit" value="Réaficher les models"/>
     </div>
     <div>
-        <label for="select_models"><h2>choisisez votre model de voiture</h2></label>
+        <label for="select_models">
+            <h2>choisisez votre model de voiture</h2>
+            <p>Appuyer sur <kbd>ctrl</kbd> pour éffectuer une selection multiple.</p>
+        </label>
         <select id="select_models" name="model[]" required size="<?php echo sizeof($car_models); ?>" multiple>
             <?php foreach($car_models as $index => $model): ?>
                 <option value="<?php echo $model->dbId; ?>" <?php if($index == 0) { echo "selected"; }?>> <?php echo $model; ?></option>

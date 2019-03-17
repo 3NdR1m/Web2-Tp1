@@ -4,8 +4,9 @@
 */
 ?>
 <?php
+    include_once('./models/voitures.php');
+    include_once ('../app/controllers/controleur_financement.php');
     
-    include_once ('D:/wamp64/www\Web2-Tp1/controllers/controleur_financement.php');
     try{
         echo "****** Test function taxes ******</br>";
         echo "valeur attendue : 1497.50 --->" . calculateTaxes(10000) . "<br>";

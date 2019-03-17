@@ -20,10 +20,9 @@
             </option>
             <?php endforeach; ?>
         </select>
-
         <br>
-            <label for="input_advance">Acompte:</label>
-            <input type="number" name="advance" id="input_advance" step="500" value="<?php echo $advance; ?>" min="0" max="<?php echo $price; ?>" required>
+        <label for="input_advance">Acompte:</label>
+        <input type="number" name="advance" id="input_advance" step="500" value="<?php echo $advance; ?>" min="0" max="<?php echo $price; ?>" required>
         <br>
         <button value="Submit">calculer</button>
     </form>
