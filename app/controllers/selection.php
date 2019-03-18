@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Benjamin Bergeron
+ */
 define('DOC_TITLE', 'Sélection');
 define('VIEW', 'selection.php');
 

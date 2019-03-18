@@ -1,18 +1,9 @@
 <?php
 /**
- * @author Benjamin Bergeron <1833271>
+ * @author Benjamin Bergeron
  */
 
 include_once("./classes/Car.php");
-
-function carClassSort(Car $a, Car $b) {
-    $al = $a->maker;
-    $bl = $b->maker;
-    if ($al == $bl) {
-        return 0;
-    }
-    return ($al > $bl) ? +1 : -1;
-}
 
 /**
  * @static

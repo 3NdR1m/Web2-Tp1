@@ -8,7 +8,7 @@
             <tr><td>Taxes :</td><td><?php echoAsFinancial($taxes)?></td></tr>
             <tr><td>Intérêts : </td><td><?php echoAsFinancial($interests); ?></td></tr>
             <tr><td>Montant à financer : </td><td><?php echoAsFinancial($total); ?></td></tr>
-            <tr><td>Paiments mensuels : </td><td><?php echoAsFinancial($monthlyPayment);?></td></tr>
+            <tr><td>Paiements mensuels : </td><td><?php echoAsFinancial($monthlyPayment);?></td></tr>
         </tbody>
     </table>
     <form action="" method="POST">
@@ -22,8 +22,8 @@
         </select>
         <br>
         <label for="input_advance">Acompte:</label>
-        <input type="number" name="advance" id="input_advance" step="500" value="<?php echo $advance; ?>" min="0" max="<?php echo $price; ?>" required>
+        <input type="number" name="advance" id="input_advance" value="<?php echo $advance; ?>" min="0" max="<?php echo $price; ?>" required>
         <br>
-        <button value="Submit">calculer</button>
+        <button value="Submit">Calculer</button>
     </form>
 </div>

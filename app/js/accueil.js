@@ -1,3 +1,6 @@
+/**
+ * @author Benjamin Bergeron
+ */
 const listMaker = document.getElementById("select_maker");
 const listModel = document.getElementById("select_models");
 const btnConfirm = document.getElementById("btn_confirm");

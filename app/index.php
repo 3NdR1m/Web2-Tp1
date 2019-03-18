@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Benjamin Bergeron
+ */
 include_once('./models/voitures.php');
 
 function invokeController(string $controller_name) {
@@ -12,12 +15,6 @@ function invokeController(string $controller_name) {
         die();
     }
 }
-function echo_r($var) {
-    echo "<pre>";
-    print_r($var);
-    echo"</pre>";
-}
-
 $url = isset($_GET['url']) ? explode('/', ltrim($_GET['url'],'/')) : '/';
 
 // Avertit lorsque la version php est inférieur à celle utilisée en developement.
@@ -42,6 +39,16 @@ switch($url[0]){
         header('location: ./accueil');
         exit();
         break;
+}
+
+//debug functions
+function print_pre($var) {
+    echo "<pre>";
+    print_r($var);
+    echo"</pre>";
+}
+function echo_line($str) {
+    echo $str. '<br>';
 }
 
 ?>

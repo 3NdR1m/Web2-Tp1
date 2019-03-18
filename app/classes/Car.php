@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Benjamin Bergeron
+ */
 define('THUMBNAIL_WIDTH', 680);
 define('THUMBNAIL_HEIGHT', 451);
 class Car {

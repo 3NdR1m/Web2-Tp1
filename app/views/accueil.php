@@ -1,17 +1,17 @@
 <form method="POST" action="" id="form_acceuil">
     <div>
-        <label for="select_maker"><h2>choisisez votre marque de voiture</h2></label>
+        <label for="select_maker"><h2>Choisissez un fabricant</h2></label>
         <select id="select_maker" name="maker" required size="<?php echo sizeof($car_makers); ?>" onchange="updateList();">
             <?php foreach($car_makers as $index => $maker): ?>
                 <option value="<?php echo $index; ?>" <?php if($index == $selected_maker) { echo "selected"; }?>> <?php echo $maker; ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="submit" value="Réaficher les models"/>
+        <button>Réafficher les modèles</button>
     </div>
     <div>
         <label for="select_models">
-            <h2>choisisez votre model de voiture</h2>
-            <p>Appuyer sur <kbd>ctrl</kbd> pour éffectuer une selection multiple.</p>
+            <h2>Choisissez parmis les modèles</h2>
+            <p>Appuyer sur <kbd>ctrl</kbd> pour effectuer une selection multiple.</p>
         </label>
         <select id="select_models" name="model[]" required size="<?php echo sizeof($car_models); ?>" multiple>
             <?php foreach($car_models as $index => $model): ?>

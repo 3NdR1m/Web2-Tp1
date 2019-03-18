@@ -51,6 +51,17 @@ table {
   grid-column-end: -3;
   padding: 16px;
 }
+.car-info-group > .car-info-card > div p {
+  margin-top: 8px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 h1,
 h2,
 body,
@@ -94,12 +105,13 @@ body > header {
   padding-left: 10vw;
   padding-right: 10vw;
 }
-body > header > h1 {
+body > header h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   display: inline;
+  color: white;
 }
-body > header > h1 > span {
+body > header h1 > span {
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 2px;
@@ -153,8 +165,6 @@ body > main > #form_acceuil > div select > option:nth-child(odd) {
 }
 body > main > #form_acceuil > div #select_maker > option[selected] {
   font-weight: bold;
-  /*background-color: var(--color-main);
-                    color: black;*/
 }
 body > footer {
   margin-top: auto;

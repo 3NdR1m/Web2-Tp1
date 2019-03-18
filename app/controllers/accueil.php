@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Paul LENOIR <1834889>
+ * @author Paul LENOIR
  */
 
 define('DOC_TITLE', "Acceuil");

@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author Benjamin Bergeron
+ */
 class InterestRule {
     public $month = 0;
     public $interestRate = 0;
